@@ -12,25 +12,23 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-function compareNumber() {
+function handlerBtnClick() {
   const randomNum = getRandomNumber(6);
-  const selValue = sel.value;
-  const betAmount = bet.value;
-  let startingAmount = 50
+  const selValue = parseInt(sel.value);
+  const betAmount = parseInt(bet.value);
+  let startingAmount = 50;
+
   console.log(randomNum);
+
   if (parseInt(selValue) === parseInt(randomNum)) {
     msg.innerHTML = 'Has ganado el doble de lo apostado!! :D';
-    const wonAmount = startingAmount + (betAmount * 2)
-    resultAmount.innerHTML = `Saldo: ${wonAmount}$`
+    let newAmount = startingAmount + (betAmount * 2);
+    resultAmount.innerHTML = `Saldo: ${newAmount}$`;
   } else {
     msg.innerHTML = 'Has perdido lo apostado... D:';
-    const lostAmount = startingAmount - betAmount;
-    resultAmount.innerHTML = `Saldo: ${lostAmount}$`;
+    let newAmount = startingAmount - betAmount;
+    resultAmount.innerHTML = `Saldo: ${newAmount}$`;
   }
-}
-
-function handlerBtnClick() {
-  compareNumber();
 }
 
 //eventos
